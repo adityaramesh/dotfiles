@@ -4,6 +4,9 @@
 " Date:		02/11/2012
 " Contact:	_@adityaramesh.com
 "
+" On development machines, create a symbolic link in the home directory to this
+" file.
+"
 
 "
 " General Vim configurations.

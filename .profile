@@ -4,6 +4,9 @@
 # Date:		08/19/2013
 # Contact:	_@adityaramesh.com
 #
+# On development machines, create a symbolic link in the home directory to this
+# file.
+#
 
 #
 # Environment variables.

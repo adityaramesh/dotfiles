@@ -73,6 +73,7 @@ if [[ $platform == "os x" ]]; then
 	alias safari="open -a \"Safari\" "
 	alias block="sudo block"
 	alias unblock="sudo unblock"
+	alias iphone="open -a \"iPhone Simulator\""
 fi
 
 #

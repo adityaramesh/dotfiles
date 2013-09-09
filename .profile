@@ -116,3 +116,7 @@ rget()
 # To list old files not in the working branch but that have not been removed
 # from the remote repository.
 # 	git status --porcelain
+#
+# Extracting part of a video using FFmpeg:
+#	ffmpeg -ss 00:00:30 -t 00:00:05 -i orginalfile -vcodec copy -acodec copy newfile
+# The value after the `-t` flag is the duration, not the end time.

@@ -57,6 +57,7 @@ if [[ $platform == "os x" ]]; then
 
 	# Compilers and Interpreters.
 	alias nasm="/opt/local/bin/nasm"
+	alias gdb="cgdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG

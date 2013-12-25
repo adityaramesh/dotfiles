@@ -47,8 +47,7 @@ Bundle "flazz/vim-colorschemes"
 Bundle "Rip-Rip/clang_complete"
 Bundle "ervandew/supertab"
 Bundle "SirVer/ultisnips"
-" Bundle "honza/vim-snippets"
-Bundle "file:///Users/aditya/projects/vim/vim-snippets"
+Bundle "adityaramesh/vim-snippets"
 filetype plugin indent on
 filetype indent off
 

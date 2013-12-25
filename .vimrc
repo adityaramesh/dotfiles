@@ -28,6 +28,9 @@ set showcmd
 set noeb vb t_vb=
 " This sets the name of the register associated with the OS copy buffer.
 let g:clipbrdDefaultReg="+"
+" Makes Session files use relative paths instead of absolute paths.
+set ssop-=curdir
+set ssop+=sesdir
 
 "
 " Vundle configuration.
@@ -39,9 +42,14 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 Bundle "godlygeek/tabular"
 Bundle "adityaramesh/smartfile"
-Bundle "Shougo/neocomplcache"
 Bundle "danro/rename.vim"
 Bundle "flazz/vim-colorschemes"
+Bundle "Rip-Rip/clang_complete"
+Bundle "ervandew/supertab"
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 filetype plugin indent on
 filetype indent off
 
@@ -146,49 +154,27 @@ set go-=b
 set go-=m
 
 "
-" Neocomplcache configuration.
+" clang_complete configuration.
 "
 
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_underbar_completion = 1
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_dictionary_filetype_lists = { 'default': '' }
-"
-"if !exists('g:neocomplcache_keyword_patterns')
-"	let g:neocomplcache_keyword_patterns = {}
-"endif
-"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"
-"inoremap <expr><C-g> neocomplcache#undo_completion()
-"inoremap <expr><C-l> neocomplcache#complete_common_string()
-"" <CR> closes popup and saves the indentation.
-"inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
-"" <TAB> completion.
-"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-"" <C-h>, <BS> close the popup and delete the previous character.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y> neocomplcache#close_popup()
-"inoremap <expr><C-e> neocomplcache#cancel_popup()
+let s:clang_library_path='/opt/local/libexec/llvm-3.3/lib/'
+if isdirectory(s:clang_library_path)
+	let g:clang_library_path=s:clang_library_path
+endif
 
-" Enable omnicompletion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+set conceallevel=2
+set concealcursor=vin
+set completeopt=menu,menuone
+set pumheight=20
 
-" Enable the more computationally-expensive omnicompletion patterns.
-"if !exists('g:neocomplcache_omni_patterns')
-"	let g:neocomplcache_omni_patterns = {}
-"endif
-"
-"let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-"let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+let g:clang_user_options='-std=c++11'
+let g:clang_auto_select=1
+let g:clang_complete_copen=1
+let g:clang_trailing_placeholder=1
+let g:clang_close_preview=1
+let g:clang_complete_patterns=1
 
 "
 " Smartfile configuration.

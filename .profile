@@ -57,7 +57,7 @@ if [[ $platform == "os x" ]]; then
 
 	# Compilers and Interpreters.
 	alias nasm="/opt/local/bin/nasm"
-	alias gdb="cgdb"
+	alias gdb="gdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
@@ -76,6 +76,12 @@ if [[ $platform == "os x" ]]; then
 	alias unblock="sudo unblock"
 	alias iphone="open -a \"iPhone Simulator\""
 fi
+
+#
+# General options.
+#
+
+set -o vi
 
 #
 # Utility functions.
@@ -121,3 +127,12 @@ rget()
 # Extracting part of a video using FFmpeg:
 #	ffmpeg -ss 00:00:30 -t 00:00:05 -i orginalfile -vcodec copy -acodec copy newfile
 # The value after the `-t` flag is the duration, not the end time.
+
+##
+# Your previous /Users/aditya/.profile file was backed up as /Users/aditya/.profile.macports-saved_2013-11-04_at_06:31:05
+##
+
+# MacPorts Installer addition on 2013-11-04_at_06:31:05: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

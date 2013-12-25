@@ -36,9 +36,9 @@ if [[ $platform == "os x" ]]; then
 
 	# Compilers.
 	export GCC="gcc-mp-4.8"
-	export CLANG="clang-mp-3.3"
+	export CLANG="clang-mp-3.4"
 	export GPLUSPLUS="g++-mp-4.8"
-	export CLANGPLUSPLUS="clang++-mp-3.3 -stdlib=libc++"
+	export CLANGPLUSPLUS="clang++-mp-3.4 -stdlib=libc++"
 	export CXX=$CLANGPLUSPLUS
 
 	# Interpreters.

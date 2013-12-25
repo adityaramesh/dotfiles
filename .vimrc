@@ -46,10 +46,9 @@ Bundle "danro/rename.vim"
 Bundle "flazz/vim-colorschemes"
 Bundle "Rip-Rip/clang_complete"
 Bundle "ervandew/supertab"
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Bundle "SirVer/ultisnips"
+" Bundle "honza/vim-snippets"
+Bundle "file:///Users/aditya/projects/vim/vim-snippets"
 filetype plugin indent on
 filetype indent off
 
@@ -154,10 +153,19 @@ set go-=b
 set go-=m
 
 "
+" UltiSnips configuration.
+"
+
+let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"
 " clang_complete configuration.
 "
 
-let s:clang_library_path='/opt/local/libexec/llvm-3.3/lib/'
+let s:clang_library_path="/opt/local/libexec/llvm-3.4/lib/"
 if isdirectory(s:clang_library_path)
 	let g:clang_library_path=s:clang_library_path
 endif
@@ -169,7 +177,7 @@ set pumheight=20
 
 let g:clang_snippets=1
 let g:clang_conceal_snippets=1
-let g:clang_user_options='-std=c++11'
+let g:clang_user_options="-std=c++1y"
 let g:clang_auto_select=1
 let g:clang_complete_copen=1
 let g:clang_trailing_placeholder=1

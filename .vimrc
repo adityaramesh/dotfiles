@@ -28,6 +28,8 @@ set showcmd
 set noeb vb t_vb=
 " This sets the name of the register associated with the OS copy buffer.
 let g:clipbrdDefaultReg="+"
+" Set the leader to the comma character.
+let mapleader=","
 " Makes Session files use relative paths instead of absolute paths.
 set ssop-=curdir
 set ssop+=sesdir
@@ -182,6 +184,9 @@ let g:clang_complete_copen=1
 let g:clang_trailing_placeholder=1
 let g:clang_close_preview=1
 let g:clang_complete_patterns=1
+
+" Make `<leader>c` check the syntax of the current buffer.
+nnoremap <silent> <leader>c :call g:ClangUpdateQuickFix()<cr>
 
 "
 " Smartfile configuration.

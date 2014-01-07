@@ -178,7 +178,7 @@ set pumheight=20
 
 let g:clang_snippets=1
 let g:clang_conceal_snippets=1
-let g:clang_user_options="-std=c++1y"
+let g:clang_user_options="-std=c++1y -Wno-deprecated-register"
 let g:clang_auto_select=1
 let g:clang_complete_copen=1
 let g:clang_trailing_placeholder=1

@@ -57,14 +57,14 @@ if [[ $platform == "os x" ]]; then
 
 	# Compilers and Interpreters.
 	alias nasm="/opt/local/bin/nasm"
-	alias gdb="gdb"
+	alias gdb="ggdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
 	alias ruby="ruby2.0"
 	alias irb="irb2.0"
-	alias rake="rake2.0"
+	alias rake="rake-1.8"
 
 	# Applications.
 	alias matlab="sudo matlab"

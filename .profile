@@ -9,6 +9,18 @@
 #
 
 #
+# If this script is being run by Dash instead of Bash, then Dash will crap out
+# with syntax errors at the if statements. When XSession parses this file, it
+# uses Dash for performance reasons, and this leads to errors that prevent
+# initialization. I do not use Dash, so I am making the shell return from the
+# script and resume execution if it is Dash.
+#
+
+if [ "$BASH_VERSION" = '' ]; then
+	return
+fi
+
+#
 # Environment variables.
 #
 

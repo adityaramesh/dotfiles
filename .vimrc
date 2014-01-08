@@ -169,7 +169,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 if has("mac") || has("macunix")
 	let s:clang_library_path="/opt/local/libexec/llvm-3.4/lib/"
 elseif has("unix")
-	let s:clang_library_path="/usr/lib/clang/3.4/lib"
+	let s:clang_library_path="/usr/lib/llvm-3.4/lib"
 endif
 
 if isdirectory(s:clang_library_path)

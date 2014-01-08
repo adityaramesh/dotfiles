@@ -26,10 +26,9 @@ fi
 # Environment paths.
 
 if [[ $platform == "os x" ]]; then
-	export PATH=~/utilities:/opt/local/bin:/Applications/MATLAB_R2012a_Student.app/bin:$PATH
+	export PATH=~/utilities:/opt/local/bin:/opt/local/sbin:/Applications/MATLAB_R2012a_Student.app/bin:$PATH
 	export TEXMFHOME=~/Library/texmf
 	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase
-	export MPL_INCLUDE_PATH=/projects/c++/mpl
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
@@ -43,6 +42,23 @@ if [[ $platform == "os x" ]]; then
 
 	# Interpreters.
 	export RUBY=ruby2.0
+elif [[ $platform == "linux" ]]; then
+	#export PATH=
+	#export TEXMFHOME=
+	export CCBASE_INCLUDE_PATH=~/inc/ccbase
+	export BOOST_INCLUDE_PATH=/usr/include
+	#export OPENCV2_INCLUDE_PATH=
+	#export EIGEN3_INCLUDE_PATH=
+
+	# Compilers.
+	export GCC="gcc"
+	export CLANG="clang"
+	export GPLUSPLUS="g++"
+	export CLANGPLUSPLUS="clang++"
+	export CXX=$CLANGPLUSPLUS
+
+	# Interpreters.
+	export RUBY=ruby
 fi
 
 #
@@ -75,6 +91,24 @@ if [[ $platform == "os x" ]]; then
 	alias block="sudo block"
 	alias unblock="sudo unblock"
 	alias iphone="open -a \"iPhone Simulator\""
+elif [[ $platform == "linux" ]]; then
+	# System commands.
+	alias ls="ls --color"
+	alias grep="grep --color=auto"
+	alias apt-get="sudo apt-get"
+
+	# Compilers and Interpreters.
+	#alias nasm=
+	alias gdb="gdb"
+	alias gcc=$GCC
+	alias g++=$GPLUSPLUS
+	alias clang=$CLANG
+	alias clang++=$CLANGPLUSPLUS
+	alias ruby="ruby"
+	alias irb="irb"
+	alias rake="rake"
+
+	# Applications.
 fi
 
 #
@@ -127,12 +161,3 @@ rget()
 # Extracting part of a video using FFmpeg:
 #	ffmpeg -ss 00:00:30 -t 00:00:05 -i orginalfile -vcodec copy -acodec copy newfile
 # The value after the `-t` flag is the duration, not the end time.
-
-##
-# Your previous /Users/aditya/.profile file was backed up as /Users/aditya/.profile.macports-saved_2013-11-04_at_06:31:05
-##
-
-# MacPorts Installer addition on 2013-11-04_at_06:31:05: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-

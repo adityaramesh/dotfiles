@@ -38,7 +38,7 @@ fi
 # Environment paths.
 
 if [[ $platform == "os x" ]]; then
-	export PATH=~/utilities:/opt/local/bin:/opt/local/sbin:/Applications/MATLAB_R2012a_Student.app/bin:$PATH
+	export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/Applications/MATLAB_R2012a_Student.app/bin:$PATH
 	export TEXMFHOME=~/Library/texmf
 	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase
 	export BOOST_INCLUDE_PATH=/opt/local/include

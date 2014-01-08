@@ -97,6 +97,9 @@ elif [[ $platform == "linux" ]]; then
 	alias grep="grep --color=auto"
 	alias apt-get="sudo apt-get"
 
+	# Text Editors
+	alias vim="~/local/bin/vim"
+
 	# Compilers and Interpreters.
 	#alias nasm=
 	alias gdb="gdb"

@@ -166,7 +166,12 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " clang_complete configuration.
 "
 
-let s:clang_library_path="/opt/local/libexec/llvm-3.4/lib/"
+if has("mac") || has("macunix")
+	let s:clang_library_path="/opt/local/libexec/llvm-3.4/lib/"
+elseif has("unix")
+	let s:clang_library_path="/usr/lib/clang/3.4/lib"
+endif
+
 if isdirectory(s:clang_library_path)
 	let g:clang_library_path=s:clang_library_path
 endif

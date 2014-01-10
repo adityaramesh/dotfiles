@@ -41,15 +41,27 @@ set ssop+=sesdir
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
+
+" Package management
 Bundle "gmarik/vundle"
+" Text alignment
 Bundle "godlygeek/tabular"
+" File signing
 Bundle "adityaramesh/smartfile"
+" Renaming files without copying
 Bundle "danro/rename.vim"
+" Color scheme repository
 Bundle "flazz/vim-colorschemes"
+" C++ semantic autocompletion
 Bundle "Rip-Rip/clang_complete"
+" Autocompletion tied to tab key
 Bundle "ervandew/supertab"
+" TextMate snippets for Vim
 Bundle "SirVer/ultisnips"
+" My snippets repository
 Bundle "adityaramesh/vim-snippets"
+" Syntax highlighting for Markdown
+Bundle "plasticboy/vim-markdown"
 filetype plugin indent on
 filetype indent off
 
@@ -94,6 +106,9 @@ set formatoptions=tcqor2
 
 " Shitty, suboptimal compromise on indentation for C-like families.
 au FileType c,cpp,objc,objcpp setlocal smartindent
+
+" Disable folding for Markdown syntax plugin because I do not like folding.
+let g:vim_markdown_folding_disabled=1
 
 "
 " Colors and highlighting.

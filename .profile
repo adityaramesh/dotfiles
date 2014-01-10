@@ -80,6 +80,11 @@ fi
 # Bash aliases.
 #
 
+function md_to_pdf()
+{
+	pandoc --latex-engine=lualatex --template=$HOME/templates/pandoc.tex $1 -o ${1%.*}.pdf
+}
+
 if [[ $platform == "os x" ]]; then
 	# System commands.
 	alias ls="ls -G"
@@ -107,6 +112,7 @@ if [[ $platform == "os x" ]]; then
 	alias block="sudo block"
 	alias unblock="sudo unblock"
 	alias iphone="open -a \"iPhone Simulator\""
+	alias md_to_pdf=md_to_pdf
 elif [[ $platform == "linux" ]]; then
 	# System commands.
 	alias ls="ls --color"
@@ -117,7 +123,7 @@ elif [[ $platform == "linux" ]]; then
 	alias vim="~/local/bin/vim"
 
 	# Compilers and Interpreters.
-	#alias nasm=
+	alias nasm="nasm"
 	alias gdb="gdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
@@ -128,6 +134,7 @@ elif [[ $platform == "linux" ]]; then
 	alias rake="rake"
 
 	# Applications.
+	alias md_to_pdf=md_to_pdf
 fi
 
 #

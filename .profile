@@ -124,7 +124,7 @@ elif [[ $platform == "linux" ]]; then
 	alias apt-get="sudo apt-get"
 
 	# Text Editors
-	alias vim="~/local/bin/vim"
+	#alias vim="~/local/bin/vim"
 
 	# Compilers and Interpreters.
 	alias nasm="nasm"
@@ -136,6 +136,8 @@ elif [[ $platform == "linux" ]]; then
 	alias ruby="ruby"
 	alias irb="irb"
 	alias rake="rake"
+	alias python="python3"
+	alias pip="pip3"
 
 	# Applications.
 	alias md_to_pdf=md_to_pdf

@@ -52,6 +52,8 @@ Bundle "adityaramesh/smartfile"
 Bundle "danro/rename.vim"
 " Color scheme repository
 Bundle "flazz/vim-colorschemes"
+" Solarized color scheme
+Bundle "altercation/vim-colors-solarized"
 " C++ semantic autocompletion
 Bundle "Rip-Rip/clang_complete"
 " Autocompletion tied to tab key
@@ -117,7 +119,9 @@ let g:vim_markdown_folding_disabled=1
 " If we select the color scheme or enable syntax highlighting after we enable
 " the cursor line, then our settings will be wiped.
 syntax enable
-colorscheme xoria256
+"colorscheme xoria256
+set background=dark
+colorscheme solarized
 
 " Highlights the current line. Setting `cterm=NONE` removes the underline from
 " the cursor line (which I do not like).

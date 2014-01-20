@@ -82,7 +82,11 @@ fi
 
 function md_to_pdf()
 {
-	pandoc --latex-engine=lualatex --template=$HOME/templates/pandoc.tex $1 -o ${1%.*}.pdf
+	if [ -z "$2" ]; then
+		return pandoc --latex-engine=lualatex --template=$HOME/templates/pandoc.tex $1 -o ${1%.*}.pdf
+	else
+		return pandoc --latex-engine=lualatex --template=$HOME/templates/pandoc.tex $1 -o $2
+	fi
 }
 
 if [[ $platform == "os x" ]]; then
@@ -99,7 +103,7 @@ if [[ $platform == "os x" ]]; then
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
 	alias ruby="ruby2.0"
-	alias irb="irb2.0"
+	#alias irb="irb1.8"
 	alias rake="rake-1.8"
 	alias pip="sudo pip-3.3"
 

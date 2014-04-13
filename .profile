@@ -44,7 +44,7 @@ if [[ $platform == "os x" ]]; then
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
 	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
-	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/inc
+	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/include
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3

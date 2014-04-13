@@ -38,12 +38,13 @@ fi
 # Environment paths.
 
 if [[ $platform == "os x" ]]; then
+	export COREUTILS_BIN=/opt/local/libexec/gnubin
 	export MACPORTS_BIN=/opt/local/bin:/opt/local/sbin
 	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.3/bin/
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
-	export PATH=~/bin:$MACPORTS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
+	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
-	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase
+	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/inc
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3

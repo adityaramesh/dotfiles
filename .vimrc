@@ -33,6 +33,9 @@ let mapleader=","
 " Makes Session files use relative paths instead of absolute paths.
 set ssop-=curdir
 set ssop+=sesdir
+" Diable the irritating Vim TeX symbol conversion. Seriously, who would possibly
+" find this helpful?
+let g:tex_conceal = ""
 
 "
 " Vundle configuration.

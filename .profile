@@ -61,7 +61,7 @@ if [[ $platform == "os x" ]]; then
 elif [[ $platform == "linux" ]]; then
 	#export PATH=
 	#export TEXMFHOME=
-	export CCBASE_INCLUDE_PATH=~/inc/ccbase
+	export CCBASE_INCLUDE_PATH=~/include/ccbase/include
 	export BOOST_INCLUDE_PATH=/usr/include
 	#export OPENCV2_INCLUDE_PATH=
 	#export EIGEN3_INCLUDE_PATH=

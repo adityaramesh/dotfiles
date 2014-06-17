@@ -21,6 +21,10 @@ if [[ "$BASH_VERSION" = '' && "$ZSH_VERSION" = '' ]]; then
 	return
 fi
 
+if [ -f ~/.platform_profile ]; then
+	source ~/.platform_profile
+fi
+
 #
 # Environment variables.
 #
@@ -84,15 +88,6 @@ fi
 # Bash aliases.
 #
 
-function md_to_pdf()
-{
-	if [ -z "$2" ]; then
-		return pandoc --latex-engine=lualatex --template=$HOME/templates/pandoc.tex $1 -o ${1%.*}.pdf
-	else
-		return pandoc --latex-engine=lualatex --template=$HOME/templates/pandoc.tex $1 -o $2
-	fi
-}
-
 if [[ $platform == "os x" ]]; then
 	# System commands.
 	alias ls="ls -G"
@@ -100,7 +95,6 @@ if [[ $platform == "os x" ]]; then
 	alias port="sudo port"
 
 	# Compilers and Interpreters.
-	alias nasm="/opt/local/bin/nasm"
 	alias gdb="ggdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
@@ -122,15 +116,11 @@ if [[ $platform == "os x" ]]; then
 	alias block="sudo block"
 	alias unblock="sudo unblock"
 	alias iphone="open -a \"iPhone Simulator\""
-	alias md_to_pdf=md_to_pdf
 elif [[ $platform == "linux" ]]; then
 	# System commands.
 	alias ls="ls --color"
 	alias grep="grep --color=auto"
 	alias apt-get="sudo apt-get"
-
-	# Text Editors
-	#alias vim="~/local/bin/vim"
 
 	# Compilers and Interpreters.
 	alias nasm="nasm"
@@ -145,13 +135,15 @@ elif [[ $platform == "linux" ]]; then
 	alias python="python3"
 	alias pip="pip3"
 
-	# Applications.
-	alias md_to_pdf=md_to_pdf
+	# Applications
+	alias vim=~/local/bin/vim
 fi
 
 #
 # General options.
 #
+
+# Configuration for the status line prompt.
 
 if [[ "$ZSH_VERSION" != '' ]]; then
 	if [[ "$HOST" == *.local ]]; then
@@ -175,41 +167,3 @@ set -o vi
 
 # Input file separators.
 IFS=$(echo -en "\n\b")
-
-# Recursively downloads all of the files from a given directory over HTTP; if a
-# glob is specified in the string, no recursion past the specified directory
-# level is performed. The "--no-parent" flag is enabled, so that files that are
-# not in subdirectories of the specified directory are not downloaded.
-rget()
-{
-	if [[ "$1" == *"*"* ]]; then
-		# Strips out the glob from the URL, e.g. "foo/bar/*.ext" becomes
-		# "foo/bar".
-		url=${1%/*}
-		# To get the extension in a separate string, we compute the
-		# length $n$ of the URL and extract the last $n+2$ characters
-		# from the original string. This is an ugly hack, but I could
-		# not find a better way to do it without using external
-		# utilities.
-		len=${#url}
-		ext=${1:len+2}
-		wget -r --no-parent -l1 -A.${ext} ${url}
-	else
-		wget -r --no-parent -l1 $1
-	fi
-}
-
-#
-# Random notes
-#
-
-# for i in $(ls); do mv "$i" "${i##*Bach_ }"; done
-# for i in $(ls); do mv "$i" "${i/_/}"; done
-#
-# To list old files not in the working branch but that have not been removed
-# from the remote repository.
-# 	git status --porcelain
-#
-# Extracting part of a video using FFmpeg:
-#	ffmpeg -ss 00:00:30 -t 00:00:05 -i orginalfile -vcodec copy -acodec copy newfile
-# The value after the `-t` flag is the duration, not the end time.

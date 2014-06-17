@@ -213,7 +213,7 @@ let g:clang_close_preview=1
 let g:clang_complete_patterns=1
 
 " Make `<leader>c` check the syntax of the current buffer.
-nnoremap <silent> <leader>c :call g:ClangUpdateQuickFix()<cr>
+" nnoremap <silent> <leader>c :call g:ClangUpdateQuickFix()<cr>
 
 "
 " Smartfile configuration.

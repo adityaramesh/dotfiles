@@ -16,7 +16,7 @@
 # script and resume execution if it is Dash.
 #
 
-if [ "$BASH_VERSION" = '' ]; then
+if [[ "$BASH_VERSION" = '' && "$ZSH_VERSION" = '' ]]; then
 	return
 fi
 
@@ -45,6 +45,7 @@ if [[ $platform == "os x" ]]; then
 	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
 	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/include
+	export MPL_INCLUDE_PATH=~/projects/c++/mpl/include
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
@@ -62,6 +63,7 @@ elif [[ $platform == "linux" ]]; then
 	#export PATH=
 	#export TEXMFHOME=
 	export CCBASE_INCLUDE_PATH=~/include/ccbase/include
+	export MPL_INCLUDE_PATH=~/include/mpl/include
 	export BOOST_INCLUDE_PATH=/usr/include
 	#export OPENCV2_INCLUDE_PATH=
 	#export EIGEN3_INCLUDE_PATH=
@@ -103,6 +105,8 @@ if [[ $platform == "os x" ]]; then
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
+	alias scan-build="scan-build-mp-3.4"
+	alias scan-view="scan-view-mp-3.4"
 	alias ruby="ruby2.0"
 	#alias irb="irb1.8"
 	alias rake="rake-1.8"
@@ -147,6 +151,20 @@ fi
 #
 # General options.
 #
+
+if [[ "$ZSH_VERSION" != '' ]]; then
+	if [[ "$HOST" == *.local ]]; then
+		export PROMPT="%n:%~⨠ "
+	else
+		export PROMPT="%n@%m:%~⨠ "
+	fi
+else
+	if [[ "$HOSTNAME" == *.local ]]; then
+		export PS1="\u:\w⨠ "
+	else
+		export PS1="\u@\h:\w⨠ "
+	fi
+fi
 
 set -o vi
 

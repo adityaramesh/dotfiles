@@ -4,8 +4,9 @@
 # Date:		08/19/2013
 # Contact:	_@adityaramesh.com
 #
-# On development machines, create a symbolic link in the home directory to this
-# file.
+# This file contains settings common to Bash and ZSH. For ZSH-specific settings,
+# see `.zprofile`. On development machines, create a symbolic link in the home
+# directory to this file.
 #
 
 #

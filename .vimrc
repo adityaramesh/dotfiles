@@ -122,9 +122,9 @@ let g:vim_markdown_folding_disabled=1
 " If we select the color scheme or enable syntax highlighting after we enable
 " the cursor line, then our settings will be wiped.
 syntax enable
-"colorscheme xoria256
-set background=dark
+" colorscheme xoria256
 colorscheme solarized
+set background=light
 
 " Highlights the current line. Setting `cterm=NONE` removes the underline from
 " the cursor line (which I do not like).

@@ -26,6 +26,9 @@ set ruler
 set showcmd
 " Disable the annoying terminal bell sound. Who would really want this...?
 set noeb vb t_vb=
+" Make it so that the cursor is always at the center of the screen, except when
+" at the start or end of the file.
+set scrolloff=999
 " This sets the name of the register associated with the OS copy buffer.
 let g:clipbrdDefaultReg="+"
 " Set the leader to the comma character.
@@ -67,6 +70,14 @@ Bundle "SirVer/ultisnips"
 Bundle "adityaramesh/vim-snippets"
 " Syntax highlighting for Markdown
 Bundle "plasticboy/vim-markdown"
+" Better support for text objects.
+Bundle "tpope/vim-surround"
+" Additional text objects
+Bundle "wellle/targets.vim"
+" Allows use of '.' to repeat plugin commands.
+Bundle "tpope/vim-repeat"
+" Use 'gc<action>' to comment out text objects.
+Bundle "tpope/vim-commentary"
 filetype plugin indent on
 filetype indent off
 

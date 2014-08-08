@@ -45,11 +45,11 @@ fi
 if [[ $platform == "os x" ]]; then
 	export COREUTILS_BIN=/opt/local/libexec/gnubin
 	export MACPORTS_BIN=/opt/local/bin:/opt/local/sbin
-	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.3/bin/
+	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
 	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
-	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/include
+	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
 	export MPL_INCLUDE_PATH=~/projects/c++/mpl/include
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
@@ -105,7 +105,9 @@ if [[ $platform == "os x" ]]; then
 	alias ruby="ruby2.0"
 	#alias irb="irb1.8"
 	alias rake="rake-1.8"
-	alias pip="sudo pip-3.3"
+	alias pip="sudo pip-3.4"
+	alias ipython="ipython-3.4"
+	alias ipn="ipython-3.4 notebook --pylab inline"
 
 	# Applications.
 	alias matlab="sudo matlab"

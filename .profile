@@ -26,10 +26,10 @@ if [ -f ~/.platform_profile ]; then
 fi
 
 #
-# Environment variables.
+# Environment variables
 #
 
-# Platform detection.
+# Platform detection
 
 platform="unknown"
 unamestr=`uname`
@@ -40,7 +40,7 @@ elif [[ "$unamestr" == "Darwin" ]]; then
 	platform="os x"
 fi
 
-# Environment paths.
+# Environment paths
 
 if [[ $platform == "os x" ]]; then
 	export COREUTILS_BIN=/opt/local/libexec/gnubin
@@ -55,32 +55,28 @@ if [[ $platform == "os x" ]]; then
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 
-	# Compilers.
+	# Compilers
 	export GCC="gcc-mp-4.8"
 	export CLANG="clang-mp-3.4"
 	export GPLUSPLUS="g++-mp-4.8"
 	export CLANGPLUSPLUS="clang++-mp-3.4 -stdlib=libc++"
 	export CXX=$CLANGPLUSPLUS
 
-	# Interpreters.
+	# Interpreters
 	export RUBY=ruby2.0
 elif [[ $platform == "linux" ]]; then
-	#export PATH=
-	#export TEXMFHOME=
 	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
 	export MPL_INCLUDE_PATH=~/projects/mpl/include
 	export BOOST_INCLUDE_PATH=/usr/include
-	#export OPENCV2_INCLUDE_PATH=
-	#export EIGEN3_INCLUDE_PATH=
 
-	# Compilers.
+	# Compilers
 	export GCC="gcc"
 	export CLANG="clang"
 	export GPLUSPLUS="g++"
 	export CLANGPLUSPLUS="clang++"
 	export CXX=$CLANGPLUSPLUS
 
-	# Interpreters.
+	# Interpreters
 	export RUBY=ruby
 fi
 
@@ -89,12 +85,12 @@ fi
 #
 
 if [[ $platform == "os x" ]]; then
-	# System commands.
+	# System commands
 	alias ls="ls -G"
 	alias grep="grep --color=auto"
 	alias port="sudo port"
 
-	# Compilers and Interpreters.
+	# Compilers and interpreters
 	alias gdb="ggdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
@@ -109,7 +105,7 @@ if [[ $platform == "os x" ]]; then
 	alias ipython="ipython-3.4"
 	alias ipn="ipython-3.4 notebook --pylab inline"
 
-	# Applications.
+	# Applications
 	alias matlab="sudo matlab"
 	alias clmatlab="sudo matlab -nodisplay -nojvm" 
 	alias evince="open -a \"Preview\" "
@@ -119,26 +115,20 @@ if [[ $platform == "os x" ]]; then
 	alias unblock="sudo unblock"
 	alias iphone="open -a \"iPhone Simulator\""
 elif [[ $platform == "linux" ]]; then
-	# System commands.
+	# System commands
 	alias ls="ls --color"
 	alias grep="grep --color=auto"
-	alias apt-get="sudo apt-get"
 
-	# Compilers and Interpreters.
-	alias nasm="nasm"
-	alias gdb="gdb"
+	# Package managers
+	alias apt-get="sudo apt-get"
+	alias pacman="sudo pacman"
+	alias yaourt="sudo yaourt"
+
+	# Compilers and interpreters
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
-	alias ruby="ruby"
-	alias irb="irb"
-	alias rake="rake"
-	alias python="python3"
-	alias pip="pip3"
-
-	# Applications
-	alias vim=~/local/bin/vim
 fi
 
 #

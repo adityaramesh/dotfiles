@@ -47,19 +47,22 @@ if [[ $platform == "os x" ]]; then
 	export MACPORTS_BIN=/opt/local/bin:/opt/local/sbin
 	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
-	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
+	export CUDA_BIN=/Developer/NVIDIA/CUDA-7.0/bin
+	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
 	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
 	export MPL_INCLUDE_PATH=~/projects/c++/mpl/include
+	export GCD_INCLUDE_PATH=~/projects/c++/gcd/include
+	export NDMATH_INCLUDE_PATH=~/projects/infancy/ndmath/include
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 
 	# Compilers.
 	export GCC="gcc-mp-4.8"
-	export CLANG="clang-mp-3.4"
+	export CLANG="clang-mp-3.5"
 	export GPLUSPLUS="g++-mp-4.8"
-	export CLANGPLUSPLUS="clang++-mp-3.4 -stdlib=libc++"
+	export CLANGPLUSPLUS="clang++-mp-3.5 -stdlib=libc++"
 	export CXX=$CLANGPLUSPLUS
 
 	# Interpreters.
@@ -106,6 +109,7 @@ if [[ $platform == "os x" ]]; then
 	#alias irb="irb1.8"
 	alias rake="rake-1.8"
 	alias pip="sudo pip-3.4"
+	alias python="python3.4"
 	alias ipython="ipython-3.4"
 	alias ipn="ipython-3.4 notebook --pylab inline"
 
@@ -117,7 +121,7 @@ if [[ $platform == "os x" ]]; then
 	alias safari="open -a \"Safari\" "
 	alias block="sudo block"
 	alias unblock="sudo unblock"
-	alias iphone="open -a \"iPhone Simulator\""
+	alias iphone="open -a \"iOS Simulator\""
 elif [[ $platform == "linux" ]]; then
 	# System commands.
 	alias ls="ls --color"

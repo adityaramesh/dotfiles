@@ -4,9 +4,11 @@
 # Date:		08/19/2013
 # Contact:	_@adityaramesh.com
 #
-# This file contains settings common to Bash and ZSH. For ZSH-specific settings,
-# see `.zprofile`. On development machines, create a symbolic link in the home
-# directory to this file.
+# Note: this file should *only* contain settings that are valid for all versions
+# of OS X or Linux. For settings specific to a particular machine, use
+# `~/.platform_profile`. For ZSH-specific settings, see `.zprofile`. On
+# development machines, create a symbolic link in the home directory to this
+# file.
 #
 
 #
@@ -50,23 +52,21 @@ if [[ $platform == "os x" ]]; then
 	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
 	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
-	export MPL_INCLUDE_PATH=~/projects/c++/mpl/include
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 
 	# Compilers
 	export GCC="gcc-mp-4.8"
-	export CLANG="clang-mp-3.4"
+	export CLANG="clang-mp-3.5"
 	export GPLUSPLUS="g++-mp-4.8"
-	export CLANGPLUSPLUS="clang++-mp-3.4 -stdlib=libc++"
+	export CLANGPLUSPLUS="clang++-mp-3.5 -stdlib=libc++"
 	export CXX=$CLANGPLUSPLUS
 
 	# Interpreters
 	export RUBY=ruby2.0
 elif [[ $platform == "linux" ]]; then
 	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
-	export MPL_INCLUDE_PATH=~/projects/mpl/include
 	export BOOST_INCLUDE_PATH=/usr/include
 
 	# Compilers
@@ -96,23 +96,18 @@ if [[ $platform == "os x" ]]; then
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
-	alias scan-build="scan-build-mp-3.4"
-	alias scan-view="scan-view-mp-3.4"
 	alias ruby="ruby2.0"
-	#alias irb="irb1.8"
+	alias irb="irb1.8"
 	alias rake="rake-1.8"
 	alias pip="sudo pip-3.4"
-	alias ipython="ipython-3.4"
-	alias ipn="ipython-3.4 notebook --pylab inline"
+	alias ipython="ipython-3.4 notebook --pylab"
 
 	# Applications
-	alias matlab="sudo matlab"
-	alias clmatlab="sudo matlab -nodisplay -nojvm" 
+	alias matlab="matlab"
+	alias clmatlab="matlab -nodisplay -nojvm" 
 	alias evince="open -a \"Preview\" "
 	alias preview="open -a \"Preview\" "
 	alias safari="open -a \"Safari\" "
-	alias block="sudo block"
-	alias unblock="sudo unblock"
 	alias iphone="open -a \"iPhone Simulator\""
 elif [[ $platform == "linux" ]]; then
 	# System commands
@@ -129,6 +124,9 @@ elif [[ $platform == "linux" ]]; then
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
+
+	# Applications
+	alias clmatlab="matlab -nodisplay -nojvm" 
 fi
 
 #

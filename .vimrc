@@ -201,15 +201,15 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " clang_complete configuration.
 "
 
-"if has("mac") || has("macunix")
-"	let s:clang_library_path="/opt/local/libexec/llvm-3.4/lib/"
-"elseif has("unix")
-"	let s:clang_library_path="/usr/lib/llvm-3.4/lib"
-"endif
-"
-"if isdirectory(s:clang_library_path)
-"	let g:clang_library_path=s:clang_library_path
-"endif
+if has("mac") || has("macunix")
+	let s:clang_library_path="/opt/local/libexec/llvm-3.5/lib/"
+elseif has("unix")
+	let s:clang_library_path="/usr/lib/llvm-3.5/lib"
+endif
+
+if isdirectory(s:clang_library_path)
+	let g:clang_library_path=s:clang_library_path
+endif
 
 if v:version >= 703
 	set conceallevel=2
@@ -219,14 +219,14 @@ endif
 set completeopt=menu,menuone
 set pumheight=20
 
-"let g:clang_snippets=1
-"let g:clang_conceal_snippets=1
-"let g:clang_user_options="-std=c++1y -Wno-deprecated-register"
-"let g:clang_auto_select=1
-"let g:clang_complete_copen=1
-"let g:clang_trailing_placeholder=1
-"let g:clang_close_preview=1
-"let g:clang_complete_patterns=1
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+let g:clang_user_options="-std=c++1y -Wno-deprecated-register"
+let g:clang_auto_select=1
+let g:clang_complete_copen=1
+let g:clang_trailing_placeholder=1
+let g:clang_close_preview=1
+let g:clang_complete_patterns=1
 
 " Make `<leader>c` check the syntax of the current buffer.
 " nnoremap <silent> <leader>c :call g:ClangUpdateQuickFix()<cr>

@@ -4,9 +4,11 @@
 # Date:		08/19/2013
 # Contact:	_@adityaramesh.com
 #
-# This file contains settings common to Bash and ZSH. For ZSH-specific settings,
-# see `.zprofile`. On development machines, create a symbolic link in the home
-# directory to this file.
+# Note: this file should *only* contain settings that are valid for all versions
+# of OS X or Linux. For settings specific to a particular machine, use
+# `~/.platform_profile`. For ZSH-specific settings, see `.zprofile`. On
+# development machines, create a symbolic link in the home directory to this
+# file.
 #
 
 #
@@ -26,10 +28,10 @@ if [ -f ~/.platform_profile ]; then
 fi
 
 #
-# Environment variables.
+# Environment variables
 #
 
-# Platform detection.
+# Platform detection
 
 platform="unknown"
 unamestr=`uname`
@@ -40,7 +42,7 @@ elif [[ "$unamestr" == "Darwin" ]]; then
 	platform="os x"
 fi
 
-# Environment paths.
+# Environment paths
 
 if [[ $platform == "os x" ]]; then
 	export COREUTILS_BIN=/opt/local/libexec/gnubin
@@ -51,39 +53,31 @@ if [[ $platform == "os x" ]]; then
 	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$PATH
 	export TEXMFHOME=~/Library/texmf
 	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
-	export MPL_INCLUDE_PATH=~/projects/c++/mpl/include
-	export GCD_INCLUDE_PATH=~/projects/c++/gcd/include
-	export NDMATH_INCLUDE_PATH=~/projects/infancy/ndmath/include
 	export BOOST_INCLUDE_PATH=/opt/local/include
 	export OPENCV2_INCLUDE_PATH=/opt/local/include
 	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 
-	# Compilers.
+	# Compilers
 	export GCC="gcc-mp-4.8"
 	export CLANG="clang-mp-3.5"
 	export GPLUSPLUS="g++-mp-4.8"
 	export CLANGPLUSPLUS="clang++-mp-3.5 -stdlib=libc++"
 	export CXX=$CLANGPLUSPLUS
 
-	# Interpreters.
+	# Interpreters
 	export RUBY=ruby2.0
 elif [[ $platform == "linux" ]]; then
-	#export PATH=
-	#export TEXMFHOME=
 	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
-	export MPL_INCLUDE_PATH=~/projects/mpl/include
 	export BOOST_INCLUDE_PATH=/usr/include
-	#export OPENCV2_INCLUDE_PATH=
-	#export EIGEN3_INCLUDE_PATH=
 
-	# Compilers.
+	# Compilers
 	export GCC="gcc"
 	export CLANG="clang"
 	export GPLUSPLUS="g++"
 	export CLANGPLUSPLUS="clang++"
 	export CXX=$CLANGPLUSPLUS
 
-	# Interpreters.
+	# Interpreters
 	export RUBY=ruby
 fi
 
@@ -92,57 +86,49 @@ fi
 #
 
 if [[ $platform == "os x" ]]; then
-	# System commands.
+	# System commands
 	alias ls="ls -G"
 	alias grep="grep --color=auto"
 	alias port="sudo port"
 
-	# Compilers and Interpreters.
+	# Compilers and interpreters
 	alias gdb="ggdb"
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
-	alias scan-build="scan-build-mp-3.4"
-	alias scan-view="scan-view-mp-3.4"
 	alias ruby="ruby2.0"
-	#alias irb="irb1.8"
+	alias irb="irb1.8"
 	alias rake="rake-1.8"
 	alias pip="sudo pip-3.4"
 	alias python="python3.4"
 	alias ipython="ipython-3.4"
-	alias ipn="ipython-3.4 notebook --pylab inline"
 
-	# Applications.
-	alias matlab="sudo matlab"
-	alias clmatlab="sudo matlab -nodisplay -nojvm" 
+	# Applications
+	alias matlab="matlab"
+	alias clmatlab="matlab -nodisplay -nojvm" 
 	alias evince="open -a \"Preview\" "
 	alias preview="open -a \"Preview\" "
 	alias safari="open -a \"Safari\" "
-	alias block="sudo block"
-	alias unblock="sudo unblock"
 	alias iphone="open -a \"iOS Simulator\""
 elif [[ $platform == "linux" ]]; then
-	# System commands.
+	# System commands
 	alias ls="ls --color"
 	alias grep="grep --color=auto"
-	alias apt-get="sudo apt-get"
 
-	# Compilers and Interpreters.
-	alias nasm="nasm"
-	alias gdb="gdb"
+	# Package managers
+	alias apt-get="sudo apt-get"
+	alias pacman="sudo pacman"
+	alias yaourt="sudo yaourt"
+
+	# Compilers and interpreters
 	alias gcc=$GCC
 	alias g++=$GPLUSPLUS
 	alias clang=$CLANG
 	alias clang++=$CLANGPLUSPLUS
-	alias ruby="ruby"
-	alias irb="irb"
-	alias rake="rake"
-	alias python="python3"
-	alias pip="pip3"
 
 	# Applications
-	alias vim=~/local/bin/vim
+	alias clmatlab="matlab -nodisplay -nojvm" 
 fi
 
 #

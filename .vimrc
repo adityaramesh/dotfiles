@@ -45,39 +45,41 @@ let g:tex_conceal = ""
 "
 
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Package management
-Bundle "gmarik/vundle"
+Plugin 'gmarik/Vundle.vim'
 " Text alignment
-Bundle "godlygeek/tabular"
+Plugin 'godlygeek/tabular'
 " File signing
-Bundle "adityaramesh/smartfile"
+Plugin 'adityaramesh/smartfile'
 " Renaming files without copying
-Bundle "danro/rename.vim"
+Plugin 'danro/rename.vim'
 " Color scheme repository
-Bundle "flazz/vim-colorschemes"
+Plugin 'flazz/vim-colorschemes'
 " Solarized color scheme
-Bundle "altercation/vim-colors-solarized"
+Plugin 'altercation/vim-colors-solarized'
 " C++ semantic autocompletion
-Bundle "Rip-Rip/clang_complete"
+Plugin 'Rip-Rip/clang_complete'
 " Autocompletion tied to tab key
-Bundle "ervandew/supertab"
+Plugin 'ervandew/supertab'
 " TextMate snippets for Vim
-Bundle "SirVer/ultisnips"
+Plugin 'SirVer/ultisnips'
 " My snippets repository
-Bundle "adityaramesh/vim-snippets"
+Plugin 'adityaramesh/vim-snippets'
 " Syntax highlighting for Markdown
-Bundle "plasticboy/vim-markdown"
+Plugin 'plasticboy/vim-markdown'
 " Better support for text objects.
-Bundle "tpope/vim-surround"
+Plugin 'tpope/vim-surround'
 " Additional text objects
-Bundle "wellle/targets.vim"
+Plugin 'wellle/targets.vim'
 " Allows use of '.' to repeat plugin commands.
-Bundle "tpope/vim-repeat"
+Plugin 'tpope/vim-repeat'
 " Use 'gc<action>' to comment out text objects.
-Bundle "tpope/vim-commentary"
+Plugin 'tpope/vim-commentary'
+
+call vundle#end()
 filetype plugin indent on
 filetype indent off
 
@@ -209,8 +211,11 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "	let g:clang_library_path=s:clang_library_path
 "endif
 
-set conceallevel=2
-set concealcursor=vin
+if v:version >= 703
+	set conceallevel=2
+	set concealcursor=vin
+endif
+
 set completeopt=menu,menuone
 set pumheight=20
 

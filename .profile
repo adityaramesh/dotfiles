@@ -67,6 +67,9 @@ if [[ $platform == "os x" ]]; then
 	# Interpreters
 	export RUBY=ruby2.0
 elif [[ $platform == "linux" ]]; then
+	export LOCAL_BIN=~/local/bin
+	export PATH=$LOCAL_BIN:$PATH
+
 	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
 	export BOOST_INCLUDE_PATH=/usr/include
 

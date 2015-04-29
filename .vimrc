@@ -128,17 +128,6 @@ au FileType c,cpp,objc,objcpp setlocal smartindent
 " Disable folding for Markdown syntax plugin because I do not like folding.
 let g:vim_markdown_folding_disabled=1
 
-"
-" Colors and highlighting.
-"
-
-" If we select the color scheme or enable syntax highlighting after we enable
-" the cursor line, then our settings will be wiped.
-syntax enable
-colorscheme xoria256
-" colorscheme solarized
-set background=light
-
 " Highlights the current line. Setting `cterm=NONE` removes the underline from
 " the cursor line (which I do not like).
 set cursorline
@@ -155,6 +144,17 @@ if version >= 700
 	set spl=en spell
 	set nospell
 endif
+
+"
+" Colors and highlighting.
+"
+
+" If we select the color scheme or enable syntax highlighting after we enable
+" the cursor line, then our settings will be wiped.
+syntax enable
+colorscheme xoria256
+" colorscheme solarized
+" set background=light
 
 "
 " Search configuration.

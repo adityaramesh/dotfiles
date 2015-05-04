@@ -50,16 +50,19 @@ call vundle#begin()
 
 " Package management
 Plugin 'gmarik/Vundle.vim'
-" Text alignment
-Plugin 'godlygeek/tabular'
-" File signing
-Plugin 'adityaramesh/smartfile'
-" Renaming files without copying
-Plugin 'danro/rename.vim'
-" Color scheme repository
+
+" Color schemes.
 Plugin 'flazz/vim-colorschemes'
-" Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'adityaramesh/xoria_lite'
+
+" Syntax highlighting.
+
+" Syntax highlighting for Markdown
+Plugin 'plasticboy/vim-markdown'
+
+" Autocompletion.
+
 " C++ semantic autocompletion
 Plugin 'Rip-Rip/clang_complete'
 " Autocompletion tied to tab key
@@ -68,8 +71,15 @@ Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 " My snippets repository
 Plugin 'adityaramesh/vim-snippets'
-" Syntax highlighting for Markdown
-Plugin 'plasticboy/vim-markdown'
+
+" Enhanced editing.
+
+" File signing
+Plugin 'adityaramesh/smartfile'
+" Text alignment
+Plugin 'godlygeek/tabular'
+" Renaming files without copying
+Plugin 'danro/rename.vim'
 " Better support for text objects.
 Plugin 'tpope/vim-surround'
 " Additional text objects
@@ -152,9 +162,7 @@ endif
 " If we select the color scheme or enable syntax highlighting after we enable
 " the cursor line, then our settings will be wiped.
 syntax enable
-colorscheme xoria256
-" colorscheme solarized
-" set background=light
+colorscheme xoria_lite
 
 "
 " Search configuration.

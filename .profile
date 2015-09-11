@@ -78,7 +78,7 @@ elif [[ $platform == "linux" ]]; then
 	export CLANG="clang"
 	export GPLUSPLUS="g++"
 	export CLANGPLUSPLUS="clang++"
-	export CXX=$CLANGPLUSPLUS
+	export CXX=$GPLUSPLUS
 
 	# Interpreters
 	export RUBY=ruby

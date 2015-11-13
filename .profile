@@ -88,6 +88,8 @@ fi
 # Bash aliases.
 #
 
+alias vim="vim -U NONE -u ~/.vimrc"
+
 if [[ $platform == "os x" ]]; then
 	# System commands
 	alias ls="ls -G"

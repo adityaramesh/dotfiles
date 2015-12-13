@@ -164,3 +164,9 @@ set -o vi
 
 # Input file separators.
 IFS=$(echo -en "\n\b")
+
+git_auth()
+{
+	eval "$(ssh-agent -s)"
+	ssh-add ~/security/aditya.github
+}

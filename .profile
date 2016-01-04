@@ -78,7 +78,7 @@ elif [[ $platform == "linux" ]]; then
 	export CLANG="clang"
 	export GPLUSPLUS="g++"
 	export CLANGPLUSPLUS="clang++"
-	export CXX=$CLANGPLUSPLUS
+	export CXX=$GPLUSPLUS
 
 	# Interpreters
 	export RUBY=ruby
@@ -87,6 +87,8 @@ fi
 #
 # Bash aliases.
 #
+
+alias vim="vim -U NONE -u ~/.vimrc"
 
 if [[ $platform == "os x" ]]; then
 	# System commands
@@ -162,3 +164,9 @@ set -o vi
 
 # Input file separators.
 IFS=$(echo -en "\n\b")
+
+git_auth()
+{
+	eval "$(ssh-agent -s)"
+	ssh-add ~/security/aditya.github
+}

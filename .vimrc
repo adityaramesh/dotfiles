@@ -126,7 +126,7 @@ set backspace=indent,eol,start
 
 " Copies the indentation from the current line to the next.
 set autoindent
-set tw=80
+set tw=100
 set wrap
 
 " See `:h fo-table` for information about the flags.

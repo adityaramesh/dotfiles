@@ -159,8 +159,11 @@ fi
 set -o vi
 
 #
-# Utility functions.
+# Utilities.
 #
+
+alias post_json="curl -X POST -H 'Content-Type: application/json'"
+alias patch_json="curl -X POST -H 'Content-Type: application/json'"
 
 # Input file separators.
 IFS=$(echo -en "\n\b")

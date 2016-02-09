@@ -45,54 +45,61 @@ fi
 # Environment paths
 
 if [[ $platform == "os x" ]]; then
+	# Directories to add to the environment path
 	export COREUTILS_BIN=/opt/local/libexec/gnubin
 	export MACPORTS_BIN=/opt/local/bin:/opt/local/sbin
 	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
 	export CUDA_BIN=/Developer/NVIDIA/CUDA-7.0/bin
 	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$PATH
-	export TEXMFHOME=~/Library/texmf
-	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
-	export BOOST_INCLUDE_PATH=/opt/local/include
-	export OPENCV2_INCLUDE_PATH=/opt/local/include
-	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 
 	# Compilers
 	export GCC="gcc-mp-4.8"
 	export CLANG="clang-mp-3.6"
 	export GPLUSPLUS="g++-mp-4.8"
-	export CLANGPLUSPLUS="clang++-mp-3.6 -stdlib=libc++"
+	export CLANGPLUSPLUS="$CLANG -stdlib=libc++"
 	export CXX=$CLANGPLUSPLUS
 
 	# Interpreters
 	export RUBY=ruby2.0
+
+	# Environment variables used by our applications
+	export TEXMFHOME=~/Library/texmf
+	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
+	export BOOST_INCLUDE_PATH=/opt/local/include
+	export OPENCV2_INCLUDE_PATH=/opt/local/include
+	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 elif [[ $platform == "linux" ]]; then
+	# Directories to add to the environment path
 	export LOCAL_BIN=~/local/bin
 	export PATH=$LOCAL_BIN:$PATH
-
-	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
-	export BOOST_INCLUDE_PATH=/usr/include
 
 	# Compilers
 	export GCC="gcc"
 	export CLANG="clang"
 	export GPLUSPLUS="g++"
 	export CLANGPLUSPLUS="clang++"
+
+	# Set to gcc instead of clang, so that Torch can compile with support for multithreading.
 	export CXX=$GPLUSPLUS
 
 	# Interpreters
 	export RUBY=ruby
+
+	# Environment variables used by our applications
+	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
+	export BOOST_INCLUDE_PATH=/usr/include
 fi
 
 #
-# Bash aliases.
+# Platform-dependent Bash aliases.
 #
 
 alias vim="vim -U NONE -u ~/.vimrc"
 
 if [[ $platform == "os x" ]]; then
 	# System commands
-	alias ls="ls -G"
+	alias ls="ls --color"
 	alias grep="grep --color=auto"
 	alias port="sudo port"
 
@@ -137,7 +144,7 @@ elif [[ $platform == "linux" ]]; then
 fi
 
 #
-# General options.
+# General options
 #
 
 # Configuration for the status line prompt.
@@ -159,16 +166,17 @@ fi
 set -o vi
 
 #
-# Utilities.
+# Utilities
 #
-
-alias post_json="curl -X POST -H 'Content-Type: application/json'"
-alias patch_json="curl -X POST -H 'Content-Type: application/json'"
 
 # Input file separators.
 IFS=$(echo -en "\n\b")
 
-git_auth()
+# Stuff related to networking.
+alias post_json="curl -X POST -H 'Content-Type: application/json'"
+alias patch_json="curl -X PATCH -H 'Content-Type: application/json'"
+
+start_git_auth()
 {
 	eval "$(ssh-agent -s)"
 	ssh-add ~/security/aditya.github

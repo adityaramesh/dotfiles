@@ -14,3 +14,9 @@ alias pip=~/local/bin/pip3.4
 alias attila=/misc/vlgscratch3/lorelei/attila-2-7/attila-2-7.20150113/attila/obj.Linux64.release.icpc/attila
 
 alias mongod_start="numactl --interleave=all mongod -f ~/conf/mongodb.conf"
+
+start_notebook()
+{
+	ipython notebook --profile=cims &
+	ssh -t linax2 'ssh -4 crackle5 -L 9002:localhost:5000 -N'
+}

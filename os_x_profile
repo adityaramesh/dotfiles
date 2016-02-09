@@ -1,0 +1,4 @@
+start_cims_ipython_tunnel()
+{
+	ssh cims -L 5000:localhost:9002 -N
+}

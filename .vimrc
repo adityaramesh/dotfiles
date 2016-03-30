@@ -64,13 +64,13 @@ Plugin 'plasticboy/vim-markdown'
 " Autocompletion.
 
 " C++ semantic autocompletion
-Plugin 'Rip-Rip/clang_complete'
+" Plugin 'Rip-Rip/clang_complete'
 " Autocompletion tied to tab key
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 " TextMate snippets for Vim
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 " My snippets repository
-Plugin 'adityaramesh/vim-snippets'
+" Plugin 'adityaramesh/vim-snippets'
 
 " Enhanced editing.
 
@@ -126,7 +126,7 @@ set backspace=indent,eol,start
 
 " Copies the indentation from the current line to the next.
 set autoindent
-set tw=80
+set tw=100
 set wrap
 
 " See `:h fo-table` for information about the flags.
@@ -200,19 +200,19 @@ set go-=m
 " UltiSnips configuration.
 "
 
-let g:UltiSnipsSnippetDirectories=["my_snippets"]
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsSnippetDirectories=["my_snippets"]
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "
 " clang_complete configuration.
 "
 
 if has("mac") || has("macunix")
-	let s:clang_library_path="/opt/local/libexec/llvm-3.5/lib/"
+	let s:clang_library_path="/opt/local/libexec/llvm-3.6/lib/"
 elseif has("unix")
-	let s:clang_library_path="/usr/lib/llvm-3.5/lib"
+	let s:clang_library_path="/usr/lib/llvm-3.6/lib"
 endif
 
 if isdirectory(s:clang_library_path)

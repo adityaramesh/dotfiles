@@ -40,8 +40,8 @@ if [[ $platform == "os x" ]]; then
 	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
 	export CUDA_BIN=/Developer/NVIDIA/CUDA-7.0/bin
-	export SSH_SCRIPTS=~/projects/ssh_scripts
-	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$SSH_SCRIPTS:$PATH
+	export TUNNELING_SCRIPTS=~/projects/tunneling_scripts
+	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$TUNNELING_SCRIPTS:$PATH
 
 	# Compilers
 	#export GCC="gcc-mp-4.8"

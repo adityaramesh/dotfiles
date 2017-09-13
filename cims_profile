@@ -1,7 +1,5 @@
-export MONGO_BIN=~/local/mongodb/bin
 # Which program uses this?
 export CUDA_BIN_PATH=/usr/local/pkg/cuda/7.0
-export PATH=$MONGO_BIN:$PATH
 
 # Alias to locally-installed libraries.
 export LOCAL_LIBRARY_PATH=~/local/lib
@@ -9,9 +7,3 @@ export LD_LIBRARY_PATH=$LOCAL_LIBRARY_PATH:$LD_LIBRARY_PATH
 
 alias tmux=~/local/bin/tmux
 alias gpu_stat=/home/deigen/bin/gpu_usage
-alias python=~/local/bin/python3.4
-alias pip=~/local/bin/pip3.4
-alias attila=/misc/vlgscratch3/lorelei/attila-2-7/attila-2-7.20150113/attila/obj.Linux64.release.icpc/attila
-
-alias mongod_start="numactl --interleave=all mongod -f ~/conf/mongodb.conf"
-alias notebook="jupyter notebook --config ~/.ipython/profile_cims/ipython_notebook_config.py"

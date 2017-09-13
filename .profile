@@ -1,23 +1,12 @@
-#
-# File Name:	.profile
-# Author:	Aditya Ramesh
-# Date:		08/19/2013
-# Contact:	_@adityaramesh.com
-#
-# Note: this file should *only* contain settings that are valid for all versions
-# of OS X or Linux. For settings specific to a particular machine, use
-# `~/.platform_profile`. For ZSH-specific settings, see `.zprofile`. On
-# development machines, create a symbolic link in the home directory to this
-# file.
-#
+# Note: this file should *only* contain settings that are valid for all versions of OS X or Linux.
+# For settings specific to a particular machine, use `~/.platform_profile`. For ZSH-specific
+# settings, see `.zprofile`. On development machines, create a symbolic link in the home directory
+# to this file.
 
-#
-# If this script is being run by Dash instead of Bash, then Dash will crap out
-# with syntax errors at the if statements. When XSession parses this file, it
-# uses Dash for performance reasons, and this leads to errors that prevent
-# initialization. I do not use Dash, so I am making the shell return from the
-# script and resume execution if it is Dash.
-#
+# If this script is being run by Dash instead of Bash, then Dash will crap out with syntax errors at
+# the if statements. When XSession parses this file, it uses Dash for performance reasons, and this
+# leads to errors that prevent initialization. I do not use Dash, so I am making the shell return
+# from the script and resume execution if it is Dash.
 
 if [[ "$BASH_VERSION" = '' && "$ZSH_VERSION" = '' ]]; then
 	return
@@ -48,27 +37,23 @@ if [[ $platform == "os x" ]]; then
 	# Directories to add to the environment path
 	export COREUTILS_BIN=/opt/local/libexec/gnubin
 	export MACPORTS_BIN=/opt/local/bin:/opt/local/sbin
-	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/
+	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/
 	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
 	export CUDA_BIN=/Developer/NVIDIA/CUDA-7.0/bin
-	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$PATH
+	export SSH_SCRIPTS=~/projects/ssh_scripts
+	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$SSH_SCRIPTS:$PATH
 
 	# Compilers
-	export GCC="gcc-mp-4.8"
-	export CLANG="clang-mp-3.6"
-	export GPLUSPLUS="g++-mp-4.8"
-	export CLANGPLUSPLUS="$CLANG -stdlib=libc++"
-	export CXX=$CLANGPLUSPLUS
-
-	# Interpreters
-	export RUBY=ruby2.0
+	#export GCC="gcc-mp-4.8"
+	#export CLANG="clang-mp-3.6"
+	#export GPLUSPLUS="g++-mp-4.8"
+	#export CLANGPLUSPLUS="$CLANG -stdlib=libc++"
+	#export CXX=$CLANGPLUSPLUS
 
 	# Environment variables used by our applications
-	export TEXMFHOME=~/Library/texmf
-	export CCBASE_INCLUDE_PATH=~/projects/c++/ccbase/master/include
-	export BOOST_INCLUDE_PATH=/opt/local/include
-	export OPENCV2_INCLUDE_PATH=/opt/local/include
-	export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
+	#export TEXMFHOME=~/Library/texmf
+	#export BOOST_INCLUDE_PATH=/opt/local/include
+	#export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
 elif [[ $platform == "linux" ]]; then
 	# Directories to add to the environment path
 	export LOCAL_BIN=~/local/bin
@@ -82,9 +67,6 @@ elif [[ $platform == "linux" ]]; then
 
 	# Set to gcc instead of clang, so that Torch can compile with support for multithreading.
 	export CXX=$GPLUSPLUS
-
-	# Interpreters
-	export RUBY=ruby
 
 	# Environment variables used by our applications
 	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
@@ -104,17 +86,14 @@ if [[ $platform == "os x" ]]; then
 	alias port="sudo port"
 
 	# Compilers and interpreters
-	alias gdb="ggdb"
-	alias gcc=$GCC
-	alias g++=$GPLUSPLUS
-	alias clang=$CLANG
-	alias clang++=$CLANGPLUSPLUS
-	alias ruby="ruby2.0"
-	alias irb="irb1.8"
-	alias rake="rake-1.8"
-	alias pip="sudo pip-3.4"
-	alias python="python3.4"
-	alias ipython="ipython-3.4"
+	alias pip="sudo pip"
+	#alias gdb="ggdb"
+	#alias gcc=$GCC
+	#alias g++=$GPLUSPLUS
+	#alias clang=$CLANG
+	#alias clang++=$CLANGPLUSPLUS
+	#alias python="python3.5"
+	#alias ipython="ipython-3.5"
 
 	# Applications
 	alias matlab="matlab"
@@ -122,7 +101,8 @@ if [[ $platform == "os x" ]]; then
 	alias evince="open -a \"Preview\" "
 	alias preview="open -a \"Preview\" "
 	alias safari="open -a \"Safari\" "
-	alias iphone="open -a \"iOS Simulator\""
+	alias chrome="open -a \"Google Chrome\" "
+	alias iphone="open -a \"iOS Simulator\" "
 elif [[ $platform == "linux" ]]; then
 	# System commands
 	alias ls="ls --color"

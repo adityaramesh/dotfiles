@@ -35,74 +35,39 @@ fi
 
 if [[ $platform == "os x" ]]; then
 	# Directories to add to the environment path
-	export COREUTILS_BIN=/opt/local/libexec/gnubin
-	export MACPORTS_BIN=/opt/local/bin:/opt/local/sbin
-	export PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/
-	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
-	export CUDA_BIN=/Developer/NVIDIA/CUDA-7.0/bin
+	export LOCAL_BIN=~/local/bin
 	export TUNNELING_SCRIPTS=~/projects/tunneling_scripts
-	export PATH=~/bin:$MACPORTS_BIN:$COREUTILS_BIN:$PYTHON_BIN:$MATLAB_BIN:$CUDA_BIN:$TUNNELING_SCRIPTS:$PATH
-
-	# Compilers
-	#export GCC="gcc-mp-4.8"
-	#export CLANG="clang-mp-3.6"
-	#export GPLUSPLUS="g++-mp-4.8"
-	#export CLANGPLUSPLUS="$CLANG -stdlib=libc++"
-	#export CXX=$CLANGPLUSPLUS
-
-	# Environment variables used by our applications
-	#export TEXMFHOME=~/Library/texmf
-	#export BOOST_INCLUDE_PATH=/opt/local/include
-	#export EIGEN3_INCLUDE_PATH=/opt/local/include/eigen3
+	export CUDA_BIN=/Developer/NVIDIA/CUDA-7.0/bin
+	export MATLAB_BIN=/Applications/MATLAB_R2012a_Student.app/bin
+	export PATH=$LOCAL_BIN:$TUNNELING_SCRIPTS:$CUDA_BIN:$MATLAB_BIN:$PATH
 elif [[ $platform == "linux" ]]; then
 	# Directories to add to the environment path
 	export LOCAL_BIN=~/local/bin
 	export PATH=$LOCAL_BIN:$PATH
-
-	# Compilers
-	export GCC="gcc"
-	export CLANG="clang"
-	export GPLUSPLUS="g++"
-	export CLANGPLUSPLUS="clang++"
-
-	# Set to gcc instead of clang, so that Torch can compile with support for multithreading.
-	export CXX=$GPLUSPLUS
-
-	# Environment variables used by our applications
-	export CCBASE_INCLUDE_PATH=~/projects/ccbase/include
-	export BOOST_INCLUDE_PATH=/usr/include
 fi
 
 #
 # Platform-dependent Bash aliases.
 #
 
-alias vim="vim -U NONE -u ~/.vimrc"
-
 if [[ $platform == "os x" ]]; then
 	# System commands
-	alias ls="ls --color"
+	#alias ls="ls --color"
 	alias grep="grep --color=auto"
-	alias port="sudo port"
-
-	# Compilers and interpreters
-	alias pip="sudo pip"
-	#alias gdb="ggdb"
-	#alias gcc=$GCC
-	#alias g++=$GPLUSPLUS
-	#alias clang=$CLANG
-	#alias clang++=$CLANGPLUSPLUS
-	#alias python="python3.5"
-	#alias ipython="ipython-3.5"
 
 	# Applications
+	alias vim="/usr/local/bin/vim -U NONE -u ~/.vimrc"
+
 	alias matlab="matlab"
 	alias clmatlab="matlab -nodisplay -nojvm" 
+
 	alias evince="open -a \"Preview\" "
 	alias preview="open -a \"Preview\" "
+
 	alias safari="open -a \"Safari\" "
 	alias chrome="open -a \"Google Chrome\" "
-	alias iphone="open -a \"iOS Simulator\" "
+	alias iphone="open -a \"Simulator\" "
+	alias simulator="open -a \"Simulator\" "
 elif [[ $platform == "linux" ]]; then
 	# System commands
 	alias ls="ls --color"
@@ -113,13 +78,8 @@ elif [[ $platform == "linux" ]]; then
 	alias pacman="sudo pacman"
 	alias yaourt="sudo yaourt"
 
-	# Compilers and interpreters
-	alias gcc=$GCC
-	alias g++=$GPLUSPLUS
-	alias clang=$CLANG
-	alias clang++=$CLANGPLUSPLUS
-
 	# Applications
+	alias vim="vim -U NONE -u ~/.vimrc"
 	alias clmatlab="matlab -nodisplay -nojvm" 
 fi
 

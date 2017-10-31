@@ -1,43 +1,33 @@
-"
-" File Name:	.vimrc
-" Author:	Aditya Ramesh
-" Date:		02/11/2012
-" Contact:	_@adityaramesh.com
-"
-" On development machines, create a symbolic link in the home directory to this
-" file.
-"
+" On development machines, create a symbolic link in the home directory to this file.
 
 "
-" General Vim configurations.
+" General Vim configuration.
 "
 
-" By foregoing compatibility with Vi, we get several feature upgrades, including
-" better undo and redo functionality.
+" By foregoing compatibility with Vi, we get several feature upgrades, including better undo and
+" redo functionality.
 set nocompatible
 " Disables the mouse in [a]ll modes.
 set mouse-=a
 " Allows loaded buffers to be abandoned.
 set hidden
-" Uses a nice predefined format for the status bar at the bottom-right corner of
-" the screen.
+" Uses a nice predefined format for the status bar at the bottom-right corner of the screen.
 set ruler
 " Shows the command currently being typed.
 set showcmd
-" Disable the annoying terminal bell sound. Who would really want this...?
+" Disable the annoying terminal bell sound.
 set noeb vb t_vb=
-" Make it so that the cursor is always at the center of the screen, except when
-" at the start or end of the file.
+" Pin the cursor to the center of the screen, except when at the start or end of the file.
 set scrolloff=999
 " This sets the name of the register associated with the OS copy buffer.
 let g:clipbrdDefaultReg="+"
 " Set the leader to the comma character.
 let mapleader=","
-" Makes Session files use relative paths instead of absolute paths.
+" Makes Session files use relative paths instead of absolute paths, so that they don't break when
+" the base directory for the project is moved.
 set ssop-=curdir
 set ssop+=sesdir
-" Diable the irritating Vim TeX symbol conversion. Seriously, who would possibly
-" find this helpful?
+" Diable the irritating Vim TeX symbol conversion.
 let g:tex_conceal = ""
 
 "
@@ -57,25 +47,22 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'adityaramesh/xoria_lite'
 
 " Syntax highlighting.
-
-" Syntax highlighting for Markdown
 Plugin 'plasticboy/vim-markdown'
 
 " Autocompletion.
 
-" C++ semantic autocompletion
+"" C++ semantic autocompletion. Currently commented out because it leads to too many configuration
+"" issues.
 " Plugin 'Rip-Rip/clang_complete'
-" Autocompletion tied to tab key
+"" Autocompletion tied to tab key
 " Plugin 'ervandew/supertab'
-" TextMate snippets for Vim
+"" TextMate snippets for Vim
 " Plugin 'SirVer/ultisnips'
-" My snippets repository
+"" My snippets repository
 " Plugin 'adityaramesh/vim-snippets'
 
 " Enhanced editing.
 
-" File signing
-Plugin 'adityaramesh/smartfile'
 " Text alignment
 Plugin 'godlygeek/tabular'
 " Renaming files without copying
@@ -104,25 +91,29 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " Make j and k move to the next visual line instead of the next physical line.
-" [Source](https://github.com/jackfranklin/dotfiles/blob/master/.vimrc).
+" Source: https://github.com/jackfranklin/dotfiles/blob/master/.vimrc
 nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
 " Reselect the visual block after indentation.
-" [Source](https://github.com/jackfranklin/dotfiles/blob/master/.vimrc).
+" Source: https://github.com/jackfranklin/dotfiles/blob/master/.vimrc
 vnoremap < <gv
 vnoremap > >gv
 
 " Fix the annoying delay after pressing `<ESC>O`.
-set timeout timeoutlen=1000 ttimeoutlen=100
+set timeout timeoutlen=1000 ttimeoutlen=0
 " Allow backspace to delete anything in insert mode.
 set backspace=indent,eol,start
 
 "
 " Text formatting configurations.
 "
+
+" Tab configuration. The recommended way to override the settings of 'ftplugin' is to create a
+" custom plugin that is loaded before it. But I find this solution to be simpler and more elegant.
+au FileType * :set noexpandtab softtabstop=8 shiftwidth=8
 
 " Copies the indentation from the current line to the next.
 set autoindent
@@ -135,7 +126,7 @@ set formatoptions=tcqor2
 " Shitty, suboptimal compromise on indentation for C-like families.
 au FileType c,cpp,objc,objcpp setlocal smartindent
 
-" Disable folding for Markdown syntax plugin because I do not like folding.
+" Disable folding for Markdown syntax plugin.
 let g:vim_markdown_folding_disabled=1
 
 " Highlights the current line. Setting `cterm=NONE` removes the underline from
@@ -144,8 +135,8 @@ set cursorline
 hi CursorLine cterm=NONE
 
 "
-" Syntax configuration. Make sure that set t_Co=256 appears before any commands
-" that affect the color scheme!
+" Syntax configuration. Make sure that set t_Co=256 appears before any commands that affect the
+" color scheme!
 "
 
 set t_Co=256
@@ -159,8 +150,8 @@ endif
 " Colors and highlighting.
 "
 
-" If we select the color scheme or enable syntax highlighting after we enable
-" the cursor line, then our settings will be wiped.
+" If we select the color scheme or enable syntax highlighting after we enable the cursor line, then
+" our settings will be wiped.
 syntax enable
 colorscheme xoria_lite
 
@@ -170,16 +161,17 @@ colorscheme xoria_lite
 
 set incsearch
 set showmatch
-" Remap the command to redraw the screen, so that any highlighting from previous
-" commands is no longer visible.
+" Remap the command to redraw the screen, so that any highlighting from previous commands is no
+" longer visible.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 "
 " Window configuration.
 "
 
-" Create the vertically split panel to the right by default.
+" Create vertically split panels to the right by default.
 set splitright
+
 " Make help windows split the screen vertically by default.
 cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == "h" ? "vertical h" : "h"
 cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == "help" ? "vertical help" : "help"
@@ -238,16 +230,6 @@ let g:clang_complete_patterns=1
 
 " Make `<leader>c` check the syntax of the current buffer.
 " nnoremap <silent> <leader>c :call g:ClangUpdateQuickFix()<cr>
-
-"
-" Smartfile configuration.
-"
-
-let g:sf_author = "Aditya Ramesh"
-let g:sf_contact = "_@adityaramesh.com"
-let g:sf_dateformat = "%m/%d/%Y"
-let g:sf_website = "adityaramesh.com"
-let g:sf_headerformat = "fadc"
 
 "
 " Utility functions.

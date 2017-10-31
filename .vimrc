@@ -54,12 +54,13 @@ Plugin 'plasticboy/vim-markdown'
 "" C++ semantic autocompletion. Currently commented out because it leads to too many configuration
 "" issues.
 " Plugin 'Rip-Rip/clang_complete'
-"" Autocompletion tied to tab key
-" Plugin 'ervandew/supertab'
-"" TextMate snippets for Vim
-" Plugin 'SirVer/ultisnips'
-"" My snippets repository
-" Plugin 'adityaramesh/vim-snippets'
+" Autocompletion tied to tab key
+Plugin 'ervandew/supertab'
+" TextMate snippets for Vim
+Plugin 'SirVer/ultisnips'
+" My snippets repository
+Plugin 'adityaramesh/vim-snippets'
+
 
 " Enhanced editing.
 
@@ -192,10 +193,10 @@ set go-=m
 " UltiSnips configuration.
 "
 
-" let g:UltiSnipsSnippetDirectories=["my_snippets"]
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["my_snippets"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "
 " clang_complete configuration.
